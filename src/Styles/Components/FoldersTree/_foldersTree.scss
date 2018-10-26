@@ -1,0 +1,52 @@
+.folders-tree {
+  overflow: auto;
+  width: 200px;
+  padding: 5px;
+  max-height: calc(100vh - 10px);
+  @include scrollbar(5px,#f1f1f1,rgb(161, 161, 161), rgb(124, 124, 124)); 
+  .empty-folder {
+    padding-left: 32px;
+    line-height: 1;
+    font-size: 10px;
+  }
+  .folder {
+    cursor: pointer;
+    padding: 3px;
+    padding-right: 0;
+    font-size: 12px;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+    > span {
+      pointer-events: none;
+    }
+    .radio-button {
+      position: absolute;
+      right: 0;
+      height: 25px;
+    }
+    .icon {
+      padding: 5px;
+      border-radius: 50%;
+      background: #c8c8c8;
+      margin-right: 5px;
+      pointer-events: none;
+      svg {
+        fill: #fff;
+      }
+    }
+    .folder {
+      padding-left: 7px;
+      border-top: 1px dashed #eee;
+      margin-top: 5px;
+      + .folder {
+        border-top: none;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
+}
