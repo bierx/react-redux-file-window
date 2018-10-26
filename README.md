@@ -111,5 +111,3 @@ export default App;
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/bierx/react-redux-file-window/issues)
-
-```
