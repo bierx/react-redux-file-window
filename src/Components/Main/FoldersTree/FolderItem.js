@@ -48,7 +48,7 @@ class FolderItem extends Component {
           className="icon"
           size={11}
           icon={
-            this.state.isOpen || this.checkToken() ? folderOpen : !folder.folders.length ? folderOpen : folderClosed
+            this.state.isOpen || this.checkToken() ? folderOpen : folderClosed 
           }
         />
         <span className="name">{folder.name}</span>
