@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Field } from "redux-form";
 
 import Icon from "react-icons-kit";
 import { folder as folderClosed } from "react-icons-kit/fa/folder";
 
-import Card from "@material-ui/core/Card";
 import SmallTooltip from "../SmallTooltip/SmallTooltip";
 
 class WindowElement extends Component {
@@ -25,7 +23,7 @@ class WindowElement extends Component {
       folder: f.folders
     });
 
-    this.props.onSelectFolder(f, parentFolderToken);
+    this.props.onSelectFolder(f, parentFolderToken, true);
   };
 
   render() {

@@ -18,14 +18,15 @@ class FileWindow extends Component {
     this.state = {};
   }
 
-  onSelectFolder(folder, parentFolderToken) {
-  
+  onSelectFolder(folder, parentFolderToken, fromWindow) {
     this.setState({
       ...this.state,
       selectedFolder: { ...folder }
     });
 
-    if (this.props.onFolderSelect) this.props.onFolderSelect(folder, parentFolderToken);
+    this.props.buildSelectedFoldersMap(folder, parentFolderToken, fromWindow);
+    this.props.onFolderSelect(folder);
+
   }
 
   selectElement(element) {
@@ -38,7 +39,7 @@ class FileWindow extends Component {
   }
 
   render() {
-    const { data, selectedFoldersMap } = this.props;
+    const { data, selectedFoldersMap} = this.props;
 
     return (
       <div>
@@ -49,7 +50,12 @@ class FileWindow extends Component {
               {this.state.selectedFolder &&
                 this.state.selectedFolder.folders &&
                 this.state.selectedFolder.folders.map(element => (
-                  <WindowFolder parentFolderToken={this.state.selectedFolder.token} onSelectFolder={this.onSelectFolder} key={element.token} element={element} />
+                  <WindowFolder
+                    parentFolderToken={this.state.selectedFolder.token}
+                    onSelectFolder={this.onSelectFolder}
+                    key={element.token}
+                    element={element}
+                  />
                 ))}
               {this.state.selectedFolder &&
                 this.state.selectedFolder.elements &&

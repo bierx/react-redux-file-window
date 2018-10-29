@@ -32,10 +32,6 @@ class FolderItem extends Component {
   };
 
   checkToken() {
-    console.log(this.props.selectedFoldersMap);
-    // console.log(this.props.folder.token);
-    // console.log(this.props.selectedFoldersMap.includes(this.props.folder.token));
-
     return this.props.selectedFoldersMap.includes(this.props.folder.token);
   }
 
@@ -48,12 +44,12 @@ class FolderItem extends Component {
           className="icon"
           size={11}
           icon={
-            this.state.isOpen || this.checkToken() ? folderOpen : folderClosed 
+            this.checkToken() ? folderOpen : folderClosed 
           }
         />
         <span className="name">{folder.name}</span>
         {!folder.folders.length && <SmallTooltip text="Empty" />}
-        {(this.state.isOpen || this.checkToken()) &&
+        {(this.checkToken()) &&
           folder.folders.map((nestedFolder, index) => (
             <FolderItem
               onSelectFolder={onSelectFolder}
