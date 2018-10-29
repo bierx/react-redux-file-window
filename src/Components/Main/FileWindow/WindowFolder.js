@@ -33,7 +33,7 @@ class WindowElement extends Component {
       <div onClick={e => this.selectFolder(element, parentFolderToken, e)} className="folder-item">
         <Icon className="icon" icon={folderClosed} size={36} />
         <span className="name">{element.name}</span>
-        {!element.folders.length && <SmallTooltip text="Empty" />}
+        {(!element.folders || !element.folders.length) && <SmallTooltip text="Empty" />}
       </div>
     );
   }

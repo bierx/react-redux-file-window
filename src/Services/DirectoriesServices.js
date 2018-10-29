@@ -147,7 +147,6 @@ export function getFolders(token = "") {
                 {
                   token: "1f7f20dd10ce7836487bcc9fbbba4263eb22eb064ed2e930137f84fd275b348c",
                   name: "Folder 9 Child 3",
-                  folders: []
                 }
               ],
               elements: [

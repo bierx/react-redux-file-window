@@ -51,7 +51,6 @@ export default App;
             {
               token: "991fa14b4b1f4a8ac6677fbbb0f3dbd8118cd448e420f4a93622c3d554d836e0a",
               name: "Folder 9 Child 2",
-              folders: []
             }
           ],
           elements: [

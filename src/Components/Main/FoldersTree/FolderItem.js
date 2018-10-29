@@ -28,7 +28,7 @@ class FolderItem extends Component {
       isOpen: !this.state.isOpen
     });
 
-    this.props.onSelectFolder(f,this.props.parentFolderToken);
+    this.props.onSelectFolder(f, this.props.parentFolderToken);
   };
 
   checkToken() {
@@ -37,20 +37,14 @@ class FolderItem extends Component {
 
   render() {
     const { folder, selectedFolder, onSelectFolder, selectedFoldersMap } = this.props;
- 
+
     return (
       <div onClick={e => this.toggleFolders(folder, e)} key={folder.token} className="folder">
-        <Icon
-          className="icon"
-          size={11}
-          icon={
-            this.checkToken() ? folderOpen : folderClosed 
-          }
-        />
+        <Icon className="icon" size={11} icon={this.checkToken() ? folderOpen : folderClosed} />
         <span className="name">{folder.name}</span>
-        {!folder.folders.length && <SmallTooltip text="Empty" />}
-        {(this.checkToken()) &&
-          folder.folders.map((nestedFolder, index) => (
+        {(!folder.folders || !folder.folders.length) && <SmallTooltip text="Empty" />}
+        {this.checkToken() &&
+          folder.folders && folder.folders.map((nestedFolder, index) => (
             <FolderItem
               onSelectFolder={onSelectFolder}
               key={nestedFolder.token}
