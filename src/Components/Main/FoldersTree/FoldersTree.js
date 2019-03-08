@@ -11,26 +11,33 @@ class FoldersTree extends Component {
     this.onSelectFolder = this.onSelectFolder.bind(this);
 
     this.state = {
-      selectedFolder: {},
+      selectedFolder: {}
     };
   }
 
   onSelectFolder(folder, parentToken) {
     this.setState({
       ...this.state,
-      selectedFolder: { ...folder },
+      selectedFolder: { ...folder }
     });
 
     if (this.props.onFolderSelect) this.props.onFolderSelect(folder, parentToken);
   }
 
   render() {
-    const {selectedFoldersMap} = this.props;
+    const { selectedFoldersMap } = this.props;
     return (
       <div className="folders-tree">
-        {this.props.data.map((folder, index) => (
-          <FolderItem selectedFoldersMap={selectedFoldersMap} onSelectFolder={this.onSelectFolder} key={folder.token} folder={folder} selectedFolder={this.state.selectedFolder} />
-        ))}
+        {this.props.data &&
+          this.props.data.map((folder, index) => (
+            <FolderItem
+              selectedFoldersMap={selectedFoldersMap}
+              onSelectFolder={this.onSelectFolder}
+              key={folder.token}
+              folder={folder}
+              selectedFolder={this.state.selectedFolder}
+            />
+          ))}
       </div>
     );
   }
